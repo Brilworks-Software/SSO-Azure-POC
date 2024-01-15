@@ -5,6 +5,6 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class UserAccessToken {
-    private String accessToken;
+public class UserIdToken {
+    private String idToken;
 }

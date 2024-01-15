@@ -1,6 +1,6 @@
 package com.sso.azure.Controller;
 
-import com.sso.azure.DTO.UserAccessToken;
+import com.sso.azure.DTO.UserIdToken;
 import com.sso.azure.DTO.UserDto;
 import com.sso.azure.Service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +19,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public UserDto createUser(@RequestBody UserAccessToken userAccessToken) {
-        return userService.fetchProfileFromAzureAndSave(userAccessToken);
+    public UserDto createUser(@RequestBody UserIdToken userIdToken) throws Exception {
+        return userService.fetchProfileUsingIdTokenFromAzureAndSaveToDB(userIdToken);
     }
 }
