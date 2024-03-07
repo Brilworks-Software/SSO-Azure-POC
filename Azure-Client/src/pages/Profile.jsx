@@ -11,9 +11,9 @@ export const Profile = () => {
     });
 
     const [graphData, setGraphData] = useState(null);
- const handleSend=async(accessToken)=>{
-    const response = await axios.post('http://localhost:8080/api/user', {
-        accessToken: accessToken
+ const handleSend=async(idToken)=>{
+    const response = await axios.post('http://localhost:8088/api/user', {
+        idToken: idToken
     });
     if(response.data) setGraphData(response.data)
     
@@ -33,7 +33,8 @@ export const Profile = () => {
         }
 
         if (result) {
-            handleSend(result.accessToken)
+            console.log("Result ",result)
+            handleSend(result.idToken)
         }
 
     }, [error, result, graphData, login]);
